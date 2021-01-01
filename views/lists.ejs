@@ -1,0 +1,32 @@
+<%- include('layouts/header'); -%>
+
+<h1><%= listTitle %></h1>
+
+<div class="container">
+
+    <div class="card bg-light mb-4 ">
+
+        <div class="card-body">
+            <div class="card-header">To Do <span class="badge badge-secondary">List</span></div>
+            <form action="/" method="post">
+                <ul class="list-group circles">
+                    <% newItem.forEach(function(item){%>
+                    <form action="/delete" method="post">
+                        <li class="list-group-item" id="teks"><input type="checkbox" name="checkbox"
+                                value="<%= item._id %>" class="form-check-input" id="check"
+                                onChange="this.form.submit()">
+                            <h6><%= item.name %></h6>
+                        </li>
+                        <input type="hidden" name="listName" value="<%= listTitle %>"></input>
+                    </form>
+                    <%});%>
+                </ul><br>
+                <form action="/" method="post">
+                    <input type="text" name="newItem" placeholder="Have a nice day." required>
+                    <button type="submit" name="list" value=<%= listTitle %> class="btn">+</button>
+                </form>
+        </div>
+    </div>
+</div>
+
+<%- include('layouts/footer'); -%>
