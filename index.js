@@ -2,7 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const _ = require("lodash");
-
+const uri = process.env.MONGODB_URI;
 const app = express();
 
 // Connect Database
