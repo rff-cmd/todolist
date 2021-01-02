@@ -45,15 +45,15 @@ const List = mongoose.model("List", listsSchema);
 
 // Document Database
 const itemOne = new Item({
-  name: "Selamat Datang :)",
+  name: "Wellcome :)",
 });
 
 const itemTwo = new Item({
-  name: "Klik + untuk menambah data",
+  name: "Click + to ADD",
 });
 
 const itemThree = new Item({
-  name: "<= Klik Chekbox untuk menghapus data",
+  name: "<= Click Checkbox to DELETE",
 });
 
 const defaultItem = [itemOne, itemTwo, itemThree];
