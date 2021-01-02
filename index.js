@@ -13,7 +13,10 @@ const app = express();
 const MongoClient = require("mongodb").MongoClient;
 const uri =
   "mongodb+srv://raflymg_22:oii321654>@cluster0.dcd6x.mongodb.net/todolistDB>?retryWrites=true&w=majority";
-const client = new MongoClient(uri, { useNewUrlParser: true });
+const client = new MongoClient(uri, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 client.connect((err) => {
   const collection = client.db("test").collection("devices");
   // perform actions on the collection object
@@ -162,9 +165,17 @@ app.get("/:listItemParam", function (req, res) {
   );
 });
 
-app.listen(5000, function () {
-  console.log("server is running on port 5000.");
+app.listen(process.env.PORT || 3000, function () {
+  console.log(
+    "Express server listening on port %d in %s mode",
+    this.address().port,
+    app.settings.env
+  );
 });
+
+// app.listen(5000, function () {
+//   console.log("server is running on port 5000.");
+// });
 // var currentDay = today.getDay();
 // var weekday = new Array(5);
 
