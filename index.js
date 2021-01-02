@@ -5,23 +5,26 @@ const _ = require("lodash");
 const app = express();
 
 // Connect Database
-// mongoose.connect("mongodb://localhost:27017/todolistDB", {
+mongoose.connect(
+  "mongodb+srv://raflymg_22:oii321654@cluster0.dcd6x.mongodb.net/todolistDB?retryWrites=true&w=majority",
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  }
+);
+
+// const MongoClient = require("mongodb").MongoClient;
+// const uri =
+//   "mongodb+srv://raflymg_22:oii321654>@cluster0.dcd6x.mongodb.net/todolistDB>?retryWrites=true&w=majority";
+// const client = new MongoClient(uri, {
 //   useNewUrlParser: true,
 //   useUnifiedTopology: true,
 // });
-
-const MongoClient = require("mongodb").MongoClient;
-const uri =
-  "mongodb+srv://raflymg_22:oii321654>@cluster0.dcd6x.mongodb.net/todolistDB>?retryWrites=true&w=majority";
-const client = new MongoClient(uri, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
-client.connect((err) => {
-  const collection = client.db("test").collection("devices");
-  // perform actions on the collection object
-  client.close();
-});
+// client.connect((err) => {
+//   const collection = client.db("test").collection("devices");
+//   // perform actions on the collection object
+//   client.close();
+// });
 
 mongoose.set("useFindAndModify", false);
 
